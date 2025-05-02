@@ -15,7 +15,7 @@ function ForgotPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://book-share-backend-one.vercel.app/api/forgot-password", formData);
+      const response = await axios.post("https://book-share-backend2.vercel.app/api/forgot-password", formData);
       setMessage(response.data.message);
       if (response.data.message === "Verification successful! You can reset your password.") {
         navigate("/reset-password");

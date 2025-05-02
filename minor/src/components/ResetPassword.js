@@ -16,7 +16,7 @@ function ResetPassword() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://book-share-backend-one.vercel.app/api/reset-password", formData);
+      const response = await axios.post("https://book-share-backend2.vercel.app/api/reset-password", formData);
       setMessage(response.data.message);
 
       if (response.data.message === "Password reset successfully!") {

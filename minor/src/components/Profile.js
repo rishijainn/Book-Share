@@ -38,7 +38,7 @@ const Profile = () => {
         setLoading(true);
         try {
           const response = await axios.get(
-            `https://book-share-backend-one.vercel.app/api/user-books/${user.username}`
+            `https://book-share-backend2.vercel.app/api/user-books/${user.username}`
           );
           setBooks(response.data || []);
         } catch (error) {
@@ -58,7 +58,7 @@ const Profile = () => {
         setExchangeBooksLoading(true);
         try {
           const response = await axios.get(
-            `https://book-share-backend-one.vercel.app/api/user-exchange-books/${user.username}`
+            `https://book-share-backend2.vercel.app/api/user-exchange-books/${user.username}`
           );
           setExchangeBooks(response.data || []);
         } catch (error) {
@@ -88,7 +88,7 @@ const Profile = () => {
   const handleSaveClick = async () => {
     try {
       const response = await axios.put(
-        `https://book-share-backend-one.vercel.app/api/user/${user.username}`,
+        `https://book-share-backend2.vercel.app/api/user/${user.username}`,
         formData
       );
       const updatedUser = response.data;
@@ -118,7 +118,7 @@ const Profile = () => {
   // Delete a book
   const handleDeleteBook = async (bookId) => {
     try {
-      await axios.delete(`https://book-share-backend-one.vercel.app/api/delete-book/${bookId}`);
+      await axios.delete(`https://book-share-backend2.vercel.app/api/delete-book/${bookId}`);
       setBooks(books.filter((book) => book._id !== bookId));
       toast.success("Book removed successfully!");
     } catch (error) {
@@ -130,7 +130,7 @@ const Profile = () => {
   // Delete an exchange book
   const handleDeleteExchangeBook = async (bookId) => {
     try {
-      await axios.delete(`https://book-share-backend-one.vercel.app/api/exchange-books/${bookId}`);
+      await axios.delete(`https://book-share-backend2.vercel.app/api/exchange-books/${bookId}`);
       setExchangeBooks(exchangeBooks.filter((book) => book._id !== bookId));
       toast.success("Exchange book removed successfully!");
     } catch (error) {
@@ -399,7 +399,7 @@ const Profile = () => {
                         {book.imageUrl ? (
                           <div className="h-48 overflow-hidden bg-gray-100">
                             <img
-                              src={`https://book-share-backend-one.vercel.app/${book.imageUrl}`}
+                              src={`https://book-share-backend2.vercel.app/${book.imageUrl}`}
                               alt={book.bookName}
                               className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                             />
@@ -470,7 +470,7 @@ const Profile = () => {
                         {book.imageUrl ? (
                           <div className="h-48 overflow-hidden bg-gray-100">
                             <img
-                              src={`https://book-share-backend-one.vercel.app/${book.imageUrl}`}
+                              src={`https://book-share-backend2.vercel.app/${book.imageUrl}`}
                               alt={book.bookName}
                               className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                             />

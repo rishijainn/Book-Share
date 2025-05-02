@@ -260,7 +260,7 @@ const SellPage = ({ location, user }) => {
     }
 
     try {
-      const response = await axios.post('https://book-share-backend-one.vercel.app/api/sell-book', formDataToSend, {
+      const response = await axios.post('https://book-share-backend2.vercel.app/api/sell-book', formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
