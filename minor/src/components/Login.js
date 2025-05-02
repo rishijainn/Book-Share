@@ -35,6 +35,7 @@ function Login() {
       }
     } catch (error) {
       setError(error.response?.data?.message || "Login failed. Please check your credentials.");
+      console.log(error);
     } finally {
       setIsLoading(false);
     }
