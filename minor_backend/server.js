@@ -534,16 +534,16 @@ app.put('/api/user/:username', async (req, res) => {
   }
 });
 
-// Error handler
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ message: "Something broke!" });
-});
+// // Error handler
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).json({ message: "Something broke!" });
+// });
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ message: "Endpoint not found." });
-});
+// // 404 handler
+// app.use((req, res) => {
+//   res.status(404).json({ message: "Endpoint not found." });
+// });
 
 // Start server
 app.listen(PORT, () => {
