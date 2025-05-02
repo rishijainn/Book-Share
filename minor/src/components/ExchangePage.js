@@ -26,7 +26,7 @@ const ExchangePage = ({ location, user }) => {
     const fetchExchangeBooks = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`https://book-share-backend2.vercel.app/api/user-exchange-books/${user.username}`);
+        const response = await axios.get(`http://localhost:7654/api/user-exchange-books/${user.username}`);
         console.log(response.data)
         const otherUsersBooks = response.data.filter(book => book.exchanger === user.username);
         console.log(otherUsersBooks)
@@ -129,7 +129,7 @@ const ExchangePage = ({ location, user }) => {
     exchangeFormData.append('image', formData.image);
   
     try {
-      const response = await axios.post('https://book-share-backend2.vercel.app/api/exchange-book', exchangeFormData, {
+      const response = await axios.post('http://localhost:7654/api/exchange-book', exchangeFormData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
   
@@ -148,7 +148,7 @@ const ExchangePage = ({ location, user }) => {
       setSelectedBookId(null);
   
       // Refresh book list - using the correct endpoint
-      const booksResponse = await axios.get(`https://book-share-backend2.vercel.app/api/user-exchange-books/${user.username}`);
+      const booksResponse = await axios.get(`http://localhost:7654/api/user-exchange-books/${user.username}`);
       console.log(booksResponse);
       const otherUsersBooks = booksResponse.data.filter(book => book.exchanger !== user.username);
       setExchangeBooks(otherUsersBooks);
@@ -183,7 +183,7 @@ const ExchangePage = ({ location, user }) => {
 
       console.log("Sending exchange request with data:", exchangeData); // Debug log
 
-      const response = await axios.post("https://book-share-backend2.vercel.app/api/exchange-book-request", exchangeData);
+      const response = await axios.post("http://localhost:7654/api/exchange-book-request", exchangeData);
       
       if (response.status === 200) {
         toast.success(`Exchange request for "${book.bookTitle}" sent successfully!`);
