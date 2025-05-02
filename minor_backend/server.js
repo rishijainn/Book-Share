@@ -13,9 +13,13 @@ const PORT = process.env.PORT || 7654;
 
 // Middleware setup
 app.use(cors({
-  origin: 'https://book-share-frontend-beta.vercel.app', // Frontend URL
-  credentials: true, // Allow cookies to be sent
+  origin: [
+    "https://book-share-frontend-beta.vercel.app",
+    "https://book-share-frontend-2yntf61qh-rishijainns-projects.vercel.app"
+  ],
+  credentials: true
 }));
+
 app.use(bodyParser.json());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
