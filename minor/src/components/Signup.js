@@ -85,7 +85,7 @@ const SignUpPage = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:7654/api/signup", {
+      const response = await fetch("https://book-share-backend-one.vercel.app/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

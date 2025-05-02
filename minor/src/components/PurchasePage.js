@@ -108,7 +108,7 @@ const PurchasePage = ({ user }) => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:7654/api/purchase-books/${user.username}`
+          `https://book-share-backend-one.vercel.app/api/purchase-books/${user.username}`
         );
         console.log(response.data)
         setAvailableBooks(response.data);
@@ -145,7 +145,7 @@ const PurchasePage = ({ user }) => {
     try {
       console.log("Sending purchase request for book:", selectedBook);
       await axios.post(
-        `http://localhost:7654/api/buy-book`,
+        `https://book-share-backend-one.vercel.app/api/buy-book`,
         {
           user: user.username,
           bookId: selectedBook._id,
@@ -378,7 +378,7 @@ const PurchasePage = ({ user }) => {
               {book.imageUrl && (
                 <div className="relative aspect-w-16 aspect-h-9">
                   <img
-                    src={`http://localhost:7654/${book.imageUrl}`}
+                    src={`https://book-share-backend-one.vercel.app/${book.imageUrl}`}
                     alt={book.bookName}
                     className="object-cover rounded-t-md w-full h-full"
                   />
